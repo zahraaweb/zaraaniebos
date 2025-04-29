@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Surat Untukmu</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f0f8ff;
+    }
+
+    .envelope {
+      width: 200px;
+      height: 120px;
+      background: #ffd700;
+      margin: 0 auto;
+      position: relative;
+      border: 2px solid #000;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .envelope:before, .envelope:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .envelope:before {
+      top: -60px;
+      left: 0;
+      border-width: 60px 100px 0 100px;
+      border-color: #ffd700 transparent transparent transparent;
+      transition: top 0.5s ease, transform 0.5s ease;
+    }
+
+    .letter {
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 2s;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .open .envelope:before {
+      top: -100px;
+      transform: rotateX(180deg);
+    }
+
+    .open .letter {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Ketuk Amplop Ini!</h1>
+
+<div class="container" onclick="openEnvelope()">
+  <div class="envelope"></div>
+  <div class="letter">
+    <h2>Surat Untukmu</h2>
+    <p>Halo, semangat terus ya! Dunia ini butuh cahaya seperti kamu!</p>
+  </div>
+</div>
+
+<script>
+  function openEnvelope() {
+    document.querySelector('.container').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
